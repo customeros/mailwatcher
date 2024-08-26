@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net"
+
+	"github.com/customeros/mailwatcher/blacklists"
 )
 
 func queryARecords(domain string) ([]string, error) {
@@ -33,4 +35,8 @@ func main() {
 	for _, record := range records {
 		fmt.Println(record)
 	}
+
+	bl, err := blacklists.ReadBlacklistConfig("/Users/mbrown/src/github.com/customeros/mailwatcher/blacklists/blacklists.toml")
+
+	fmt.Println(bl["woody"].DomainLists[0].URL)
 }
