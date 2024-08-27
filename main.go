@@ -1,42 +1,37 @@
 package main
 
 import (
+	"encoding/json"
+	"flag"
 	"fmt"
+	"log"
 	"net"
+	"os"
 
-	"github.com/customeros/mailwatcher/blacklists"
+	"github.com/customeros/mailwatcher/blscan"
+	"github.com/customeros/mailwatcher/internal/blacklists"
 )
 
-func queryARecords(domain string) ([]string, error) {
-	ips, err := net.LookupIP(domain)
-	if err != nil {
-		return nil, fmt.Errorf("error looking up IP addresses: %w", err)
-	}
-
-	var aRecords []string
-	for _, ip := range ips {
-		if ipv4 := ip.To4(); ipv4 != nil {
-			aRecords = append(aRecords, ipv4.String())
-		}
-	}
-
-	return aRecords, nil
-}
-
 func main() {
-	domain := "sergnese.it.uribl.abuse.ro"
-	records, err := queryARecords(domain)
+	flag.Parse()
+	args := flag.Args()
+
+	bl, err := blacklists.ReadBlacklistConfig("./internal/blacklists/blacklists.toml")
 	if err != nil {
-		fmt.Printf("Error querying A records: %v\n", err)
-		return
+		log.Println("Cannot find blacklists.toml")
+		os.Exit(1)
 	}
 
-	fmt.Printf("A records for %s:\n", domain)
-	for _, record := range records {
-		fmt.Println(record)
+	blcount := 0
+	results := make(map[string]bool)
+
+	if net.ParseIP(args[0]) == nil {
+		blcount, results = blscan.ScanDomainBlacklists(args[0], bl)
+	} else {
+		fmt.Println("IP blacklist to be implemented")
 	}
 
-	bl, err := blacklists.ReadBlacklistConfig("/Users/mbrown/src/github.com/customeros/mailwatcher/blacklists/blacklists.toml")
-
-	fmt.Println(bl["woody"].DomainLists[0].URL)
+	fmt.Printf("%s found on %v blacklists...\n", args[0], blcount)
+	jsonData, _ := json.MarshalIndent(results, "", "  ")
+	fmt.Println(string(jsonData))
 }

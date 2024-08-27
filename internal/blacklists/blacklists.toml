@@ -30,19 +30,20 @@ lookup = "https://lookup.abusix.com/search?q={ip/domain}"
 website = "https://abusix.com"
 
 domain_lists = [
-    { name = "Abusix Mail Intelligence Domain Block List", url = "(hidden)", type = "domain" }
+    { name = "Abusix Domain Blacklist", url = "", type = "domain" },
+    { name = "Abusix Newly Observed Domains List", url = "", type = "domain" }
 ]
 
 ip_lists = [
-    { name = "Abusix Mail Intelligence Authentication Block List", url = "(hidden)", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Black list", url = "(hidden)", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "(hidden)", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Exploit list", url = "(hidden)", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Policy list", url = "(hidden)", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Authentication Block List", url = "(hidden)", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Black list", url = "(hidden)", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "(hidden)", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Exploit list", url = "(hidden)", type = "ipv6" }
+    { name = "Abusix Mail Intelligence Authentication Block List", url = "", type = "ipv4" },
+    { name = "Abusix Mail Intelligence Black list", url = "", type = "ipv4" },
+    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "", type = "ipv4" },
+    { name = "Abusix Mail Intelligence Exploit list", url = "", type = "ipv4" },
+    { name = "Abusix Mail Intelligence Policy list", url = "", type = "ipv4" },
+    { name = "Abusix Mail Intelligence Authentication Block List", url = "", type = "ipv6" },
+    { name = "Abusix Mail Intelligence Black list", url = "", type = "ipv6" },
+    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "", type = "ipv6" },
+    { name = "Abusix Mail Intelligence Exploit list", url = "", type = "ipv6" }
 ]
 
 [anonmails_de]
@@ -289,14 +290,14 @@ name = "invaluement"
 website = "https://www.invaluement.com"
 
 domain_lists = [
-    { name = "invaluement DNSBL ivmSED", url = "(hidden)", type = "domain" },
-    { name = "invaluement DNSBL ivmURI", url = "(hidden)", type = "domain" }
+    { name = "invaluement DNSBL ivmSED", url = "", type = "domain" },
+    { name = "invaluement DNSBL ivmURI", url = "", type = "domain" }
 ]
 
 ip_lists = [
-    { name = "invaluement DNSBL ivmSIP", url = "(hidden)", type = "ipv4" },
-    { name = "invaluement DNSBL ivmSIP-SIP24", url = "(hidden)", type = "ipv4" },
-    { name = "invaluement DNSBL ivmSIP/24", url = "(hidden)", type = "ipv4" }
+    { name = "invaluement DNSBL ivmSIP", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP-SIP24", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP/24", url = "", type = "ipv4" }
 ]
 
 [iprange]
@@ -509,7 +510,7 @@ name = "PowerWeb DNSBL"
 website = "https://www.powerweb.de"
 
 ip_lists = [
-    { name = "PowerWeb DNSBL", url = "(hidden)", type = "ipv4" }
+    { name = "PowerWeb DNSBL", url = "", type = "ipv4" }
 ]
 
 [projecthoneypot]
@@ -517,7 +518,7 @@ name = "Project Honey Pot"
 website = "https://www.projecthoneypot.org"
 
 ip_lists = [
-    { name = "Project Honey Pot (http:BL)", url = "(hidden)", type = "ipv4" }
+    { name = "Project Honey Pot (http:BL)", url = "", type = "ipv4" }
 ]
 
 [psbl]
@@ -781,16 +782,16 @@ ip_lists = [
     { name = "Unsubscribe Block List UBL", url = "ubl.unsubscore.com", type = "ipv4" }
 ]
 
-[uribl]
-name = "URIBL"
-website = "https://uribl.com"
+#[uribl]
+#name = "URIBL"
+#website = "https://uribl.com"
 
-domain_lists = [
-    { name = "URIBL black", url = "black.uribl.com", type = "domain" },
-    { name = "URIBL grey", url = "grey.uribl.com", type = "domain" },
-    { name = "URIBL multi", url = "multi.uribl.com", type = "domain" },
-    { name = "URIBL red", url = "red.uribl.com", type = "domain" }
-]
+#domain_lists = [
+#    { name = "URIBL black", url = "black.uribl.com", type = "domain" },
+#    { name = "URIBL grey", url = "grey.uribl.com", type = "domain" },
+#    { name = "URIBL multi", url = "multi.uribl.com", type = "domain" },
+#    { name = "URIBL red", url = "red.uribl.com", type = "domain" }
+#]
 
 [v4bl]
 name = "V4BL"
