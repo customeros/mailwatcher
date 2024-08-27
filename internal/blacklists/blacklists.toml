@@ -35,15 +35,15 @@ domain_lists = [
 ]
 
 ip_lists = [
-    { name = "Abusix Mail Intelligence Authentication Block List", url = "", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Black list", url = "", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Exploit list", url = "", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Policy list", url = "", type = "ipv4" },
-    { name = "Abusix Mail Intelligence Authentication Block List", url = "", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Black list", url = "", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Combined IP blacklist", url = "", type = "ipv6" },
-    { name = "Abusix Mail Intelligence Exploit list", url = "", type = "ipv6" }
+    { name = "Abusix Authentication Block List", url = "", type = "ipv4" },
+    { name = "Abusix Black list", url = "", type = "ipv4" },
+    { name = "Abusix Combined IP blacklist", url = "", type = "ipv4" },
+    { name = "Abusix Exploit list", url = "", type = "ipv4" },
+    { name = "Abusix Policy list", url = "", type = "ipv4" },
+    { name = "Abusix Authentication Block List", url = "", type = "ipv6" },
+    { name = "Abusix Blacklist", url = "", type = "ipv6" },
+    { name = "Abusix Combined IP Blacklist", url = "", type = "ipv6" },
+    { name = "Abusix Exploit list", url = "", type = "ipv6" }
 ]
 
 [anonmails_de]
