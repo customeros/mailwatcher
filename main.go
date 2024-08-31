@@ -11,10 +11,11 @@ import (
 	"github.com/customeros/mailwatcher/internal/blacklists"
 )
 
+var version string = "dev"
+
 func main() {
 	flag.Parse()
 	args := flag.Args()
-	version := "dev"
 
 	if args[0] == "version" {
 		fmt.Printf("MailWatcher %s\n", version)

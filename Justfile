@@ -1,7 +1,7 @@
 # Justfile for MailWatcher CLI
 
 version := `git describe --tags --always`
-ldflags := "-X github.com/customeros/mailsherpa/internal/cmd.version=" + version 
+ldflags := "-X main.version=v" + version 
 
 
 build-macos:

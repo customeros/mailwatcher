@@ -54,7 +54,6 @@ func scanIpBlacklist(ipAddress string, listType string, blacklist blacklists.Bla
 					}
 					a, err := querydns.GetARecords(query)
 					if err != nil {
-						log.Printf("Error querying DNS for %s: %v", query, err)
 						continue
 					}
 					if len(a) > 0 {
