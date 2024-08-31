@@ -1,12 +1,15 @@
 package blacklists
 
 import (
+	"embed"
 	"fmt"
-	"os"
 	"strings"
 
 	"github.com/BurntSushi/toml"
 )
+
+//go:embed blacklists.toml
+var blacklistFile embed.FS
 
 // BlacklistProvider represents a single blacklist provider
 type BlacklistProvider struct {
@@ -28,11 +31,11 @@ type ListInfo struct {
 type Blacklist map[string]*BlacklistProvider
 
 // ReadConfig reads and parses the TOML config file
-func ReadBlacklistConfig(filename string) (Blacklist, error) {
+func ReadBlacklistConfig() (Blacklist, error) {
 	var config Blacklist
 
 	// Read the file
-	content, err := os.ReadFile(filename)
+	content, err := blacklistFile.ReadFile("blacklists.toml")
 	if err != nil {
 		return nil, fmt.Errorf("error reading file: %w", err)
 	}

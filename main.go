@@ -14,8 +14,14 @@ import (
 func main() {
 	flag.Parse()
 	args := flag.Args()
+	version := "dev"
 
-	bl, err := blacklists.ReadBlacklistConfig("./internal/blacklists/blacklists.toml")
+	if args[0] == "version" {
+		fmt.Printf("MailWatcher %s\n", version)
+		return
+	}
+
+	bl, err := blacklists.ReadBlacklistConfig()
 	if err != nil {
 		log.Println("Cannot find blacklists.toml")
 		os.Exit(1)
