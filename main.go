@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"net"
 	"os"
 
 	"github.com/customeros/mailwatcher/blscan"
@@ -22,14 +21,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	blcount := 0
-	results := make(map[string]bool)
-
-	if net.ParseIP(args[0]) == nil {
-		blcount, results = blscan.ScanDomainBlacklists(args[0], bl)
-	} else {
-		fmt.Println("IP blacklist to be implemented")
-	}
+	blcount, results := blscan.ScanBlacklists(args[0], bl)
 
 	fmt.Printf("%s found on %v blacklists...\n", args[0], blcount)
 	jsonData, _ := json.MarshalIndent(results, "", "  ")
