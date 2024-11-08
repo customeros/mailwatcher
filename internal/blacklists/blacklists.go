@@ -8,8 +8,8 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-//go:embed blacklists.toml
-var blacklistFile embed.FS
+//go:embed domainLists.toml
+var domainListFile embed.FS
 
 // BlacklistProvider represents a single blacklist provider
 type BlacklistProvider struct {
@@ -35,7 +35,7 @@ func ReadBlacklistConfig() (Blacklist, error) {
 	var config Blacklist
 
 	// Read the file
-	content, err := blacklistFile.ReadFile("blacklists.toml")
+	content, err := domainListFile.ReadFile("domainLists.toml")
 	if err != nil {
 		return nil, fmt.Errorf("error reading file: %w", err)
 	}
