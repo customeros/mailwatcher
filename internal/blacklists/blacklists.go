@@ -8,8 +8,11 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
-//go:embed blacklists.toml
-var blacklistFile embed.FS
+//go:embed domainLists.toml
+var domainListFile embed.FS
+
+//go:embed ipLists.toml
+var ipListFile embed.FS
 
 // BlacklistProvider represents a single blacklist provider
 type BlacklistProvider struct {
@@ -31,13 +34,25 @@ type ListInfo struct {
 type Blacklist map[string]*BlacklistProvider
 
 // ReadConfig reads and parses the TOML config file
-func ReadBlacklistConfig() (Blacklist, error) {
+func ReadBlacklistConfig(listType string) (Blacklist, error) {
 	var config Blacklist
+	var content []byte
+	var err error
 
 	// Read the file
-	content, err := blacklistFile.ReadFile("blacklists.toml")
-	if err != nil {
-		return nil, fmt.Errorf("error reading file: %w", err)
+	switch listType {
+	case "domain":
+		content, err = domainListFile.ReadFile("domainLists.toml")
+		if err != nil {
+			return nil, fmt.Errorf("error reading file: %w", err)
+		}
+	case "ip":
+		content, err = ipListFile.ReadFile("ipLists.toml")
+		if err != nil {
+			return nil, fmt.Errorf("error reading file: %w", err)
+		}
+	default:
+		return nil, fmt.Errorf("listType must be domain or ip")
 	}
 
 	// Decode the TOML data
