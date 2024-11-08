@@ -4,11 +4,8 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"log"
-	"os"
 
 	"github.com/customeros/mailwatcher/blscan"
-	"github.com/customeros/mailwatcher/internal/blacklists"
 )
 
 var version string = "dev"
@@ -22,15 +19,11 @@ func main() {
 		return
 	}
 
-	bl, err := blacklists.ReadBlacklistConfig()
-	if err != nil {
-		log.Println("Cannot find blacklists.toml")
-		os.Exit(1)
-	}
+	fmt.Println("Searching known blacklists for", args[0])
 
-	blcount, results := blscan.ScanBlacklists(args[0], bl)
+	listType := blscan.DomainOrIp(args[0])
+	results := blscan.ScanBlacklists(args[0], listType)
 
-	fmt.Printf("%s found on %v blacklists...\n", args[0], blcount)
 	jsonData, _ := json.MarshalIndent(results, "", "  ")
 	fmt.Println(string(jsonData))
 }
