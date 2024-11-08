@@ -1,0 +1,857 @@
+# Email Block List Configuration
+
+[0spam]
+name = "0spam"
+website = "https://0spam.org"
+lookup = "https://0spam.org/check?ip={ip}"
+
+ip_lists = [
+    { name = "0spam List of IP's found in spam", url = "dbl.0spam.org", type = "ipv4" },
+    { name = "0spam Main IP Block List", url = "bl.0spam.org", type = "ipv4" },
+    { name = "0spam Main Real-Time Block List", url = "rbl.0spam.org", type = "ipv4" },
+    { name = "0spam Network Block List", url = "nbl.0spam.org", type = "ipv4" },
+]
+
+[abuse_ro]
+name = "abuse.ro"
+website = "https://abuse.ro"
+
+domain_lists = [
+    { name = "abuse.ro Real-Time Block List", url = "uribl.abuse.ro", type = "domain" }
+]
+
+ip_lists = [
+    { name = "abuse.ro IP Real-Time Block List", url = "rbl.abuse.ro", type = "ipv4" }
+]
+
+[abusix]
+name = "Abusix Mail Intelligence"
+lookup = "https://lookup.abusix.com/search?q={ip/domain}"
+website = "https://abusix.com"
+
+domain_lists = [
+    { name = "Abusix Domain Blacklist", url = "", type = "domain" },
+    { name = "Abusix Newly Observed Domains List", url = "", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Abusix Authentication Block List", url = "", type = "ipv4" },
+    { name = "Abusix Black list", url = "", type = "ipv4" },
+    { name = "Abusix Combined IP blacklist", url = "", type = "ipv4" },
+    { name = "Abusix Exploit list", url = "", type = "ipv4" },
+    { name = "Abusix Policy list", url = "", type = "ipv4" },
+    { name = "Abusix Authentication Block List", url = "", type = "ipv6" },
+    { name = "Abusix Blacklist", url = "", type = "ipv6" },
+    { name = "Abusix Combined IP Blacklist", url = "", type = "ipv6" },
+    { name = "Abusix Exploit list", url = "", type = "ipv6" }
+]
+
+[anonmails_de]
+name = "anonmails.de"
+lookup = "https://anonmails.de/dnsbl.php"
+website = "https://anonmails.de"
+
+ip_lists = [
+    { name = "anonmails.de DNSBL", url = "spam.dnsbl.anonmails.de", type = "ipv4" }
+]
+
+[antispam_ufrj]
+name = "ANTISPAM-UFRJ"
+website = "https://antispam.ufrj.br"
+
+ip_lists = [
+    { name = "ANTISPAM-UFRJ orvedb", url = "orvedb.aupads.org", type = "ipv4" },
+    { name = "ANTISPAM-UFRJ rsbl", url = "rsbl.aupads.org", type = "ipv4" }
+]
+
+[ascams_com]
+name = "Ascams.com"
+website = "https://ascams.com"
+
+ip_lists = [
+    { name = "Ascams.com Block", url = "block.ascams.com", type = "ipv4" },
+    { name = "Ascams.com DNSBL", url = "dnsbl.ascams.com", type = "ipv4" },
+    { name = "Ascams.com Superblock", url = "superblock.ascams.com", type = "ipv4" },
+    { name = "Ascams.com DNSBL", url = "dnsbl.ascams.com", type = "ipv6" }
+]
+
+[backscatterer_org]
+name = "Backscatterer.org"
+website = "https://www.backscatterer.org"
+
+ip_lists = [
+    { name = "Backscatterer.org", url = "ips.backscatterer.org", type = "ipv4" }
+]
+
+[barracudacentral]
+name = "Barracuda Reputation Block List"
+website = "https://www.barracudacentral.org"
+
+ip_lists = [
+    { name = "Barracuda Reputation Block List", url = "b.barracudacentral.org", type = "ipv4" },
+    { name = "Barracuda Reputation Block List (for SpamAssassin)", url = "bb.barracudacentral.org", type = "ipv4" }
+]
+
+[bbfh]
+name = "BBFH"
+website = "https://bbfh.org"
+
+ip_lists = [
+    { name = "BBFH Level 1", url = "list.bbfh.org", type = "ipv4" }
+]
+
+[blockedservers]
+name = "BlockedServers"
+website = "https://www.blockedservers.com"
+
+ip_lists = [
+    { name = "BlockedServers NetScan Real-Time Block List", url = "netscan.rbl.blockedservers.com", type = "ipv4" },
+    { name = "BlockedServers Real-Time Block List", url = "rbl.blockedservers.com", type = "ipv4" },
+    { name = "BlockedServers Spam Real-Time Block List", url = "spam.rbl.blockedservers.com", type = "ipv4" }
+]
+
+[blocklist_de]
+name = "www.blocklist.de"
+website = "https://www.blocklist.de"
+
+ip_lists = [
+    { name = "www.blocklist.de", url = "bl.blocklist.de", type = "ipv4" }
+]
+
+
+[spamlookup]
+name = "Blog Spam Blocklist"
+website = "https://www.spamlookup.net"
+
+domain_lists = [
+    { name = "Blog Spam Blocklist (spamlookup.net)", url = "bsb.spamlookup.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Blog Spam Blocklist (spamlookup.net)", url = "bsb.spamlookup.net", type = "ipv4" }
+]
+
+[brukalai_lt]
+name = "Brukalai.lt"
+website = "https://brukalai.lt"
+
+domain_lists = [
+    { name = "Brukalai.lt DNSBL black", url = "black.dnsbl.brukalai.lt", type = "domain" },
+    { name = "Brukalai.lt DNSBL light", url = "light.dnsbl.brukalai.lt", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Brukalai.lt DNSBL black", url = "black.dnsbl.brukalai.lt", type = "ipv4" },
+    { name = "Brukalai.lt DNSBL light", url = "light.dnsbl.brukalai.lt", type = "ipv4" }
+]
+
+[cbl]
+name = "CBL"
+website = "https://www.abuseat.org"
+
+ip_lists = [
+    { name = "CBL", url = "cbl.abuseat.org", type = "ipv4" }
+]
+
+[beetjevreemd]
+name = "dnsbl.beetjevreemd.nl"
+website = "https://dnsbl.beetjevreemd.nl"
+
+ip_lists = [
+    { name = "dnsbl.beetjevreemd.nl", url = "dnsbl.beetjevreemd.nl", type = "ipv4" },
+    { name = "dnsbl.beetjevreemd.nl", url = "dnsbl.beetjevreemd.nl", type = "ipv6" }
+]
+
+[calivent]
+name = "dnsbl.calivent.com.pe"
+website = "https://dnsbl.calivent.com.pe"
+
+ip_lists = [
+    { name = "dnsbl.calivent.com.pe", url = "dnsbl.calivent.com.pe", type = "ipv4" }
+]
+
+[isx]
+name = "dnsbl.isx.fr"
+website = "https://dnsbl.isx.fr"
+
+ip_lists = [
+    { name = "dnsbl.isx.fr", url = "dnsbl.isx.fr", type = "ipv4" }
+]
+
+[net_ua]
+name = "dnsbl.net.ua"
+website = "https://dnsbl.net.ua"
+
+ip_lists = [
+    { name = "dnsbl.net.ua", url = "dnsbl.net.ua", type = "ipv4" }
+]
+
+[rv_soft]
+name = "dnsbl.rv-soft.info"
+website = "https://dnsbl.rv-soft.info"
+
+ip_lists = [
+    { name = "dnsbl.rv-soft.info", url = "dnsbl.rv-soft.info", type = "ipv4" }
+]
+
+[dnsblchile]
+name = "dnsblchile.org"
+website = "https://www.dnsblchile.org"
+
+ip_lists = [
+    { name = "dnsblchile.org", url = "dnsblchile.org", type = "ipv4" }
+]
+
+[dronebl]
+name = "DroneBL"
+website = "https://dronebl.org"
+
+ip_lists = [
+    { name = "DroneBL", url = "dnsbl.dronebl.org", type = "ipv4" },
+    { name = "DroneBL", url = "dnsbl.dronebl.org", type = "ipv6" }
+]
+
+[efnet]
+name = "EFnet Real-Time Block List"
+website = "https://rbl.efnetrbl.org"
+
+ip_lists = [
+    { name = "EFnet Real-Time Block List", url = "rbl.efnet.org", type = "ipv4" },
+    { name = "EFnet Real-Time Block List mirror", url = "rbl.efnetrbl.org", type = "ipv4" },
+    { name = "EFnet TOR", url = "tor.efnet.org", type = "ipv4" }
+]
+
+[fasthosts]
+name = "Fasthosts Real-Time Block List"
+website = "https://www.fasthosts.co.uk"
+
+ip_lists = [
+    { name = "Fasthosts Real-Time Block List", url = "rbl.fasthosts.co.uk", type = "ipv4" }
+]
+
+[fmb_la]
+name = "fmb.la"
+website = "https://fmb.la"
+
+domain_lists = [
+    { name = "fmb.la bl", url = "bl.fmb.la", type = "domain" },
+    { name = "fmb.la communicado", url = "communicado.fmb.la", type = "domain" },
+    { name = "fmb.la nsbl", url = "nsbl.fmb.la", type = "domain" },
+    { name = "fmb.la short", url = "short.fmb.la", type = "domain" }
+]
+
+ip_lists = [
+    { name = "fmb.la bl", url = "bl.fmb.la", type = "ipv4" }
+]
+
+[fnrbl]
+name = "fnrbl.fast.net"
+website = "https://fnrbl.fast.net"
+
+ip_lists = [
+    { name = "fnrbl.fast.net", url = "fnrbl.fast.net", type = "ipv4" }
+]
+
+[icm_edu_pl]
+name = "forbidden.icm.edu.pl"
+website = "https://www.icm.edu.pl"
+
+ip_lists = [
+    { name = "forbidden.icm.edu.pl", url = "forbidden.icm.edu.pl", type = "ipv4" }
+]
+
+[ibm]
+name = "IBM DNS Block List"
+website = "https://www.ibm.com"
+
+ip_lists = [
+    { name = "IBM DNS Block List", url = "dnsbl.cobion.com", type = "ipv4" }
+]
+
+[improware]
+name = "ImproWare"
+website = "https://www.improware.com"
+
+ip_lists = [
+    { name = "ImproWare IP based spamlist", url = "spamrbl.imp.ch", type = "ipv4" },
+    { name = "ImproWare IP based wormlist", url = "wormrbl.imp.ch", type = "ipv4" }
+]
+
+[interserver]
+name = "InterServer BL"
+website = "https://www.interserver.net"
+
+ip_lists = [
+    { name = "InterServer BL", url = "rbl.interserver.net", type = "ipv4" }
+]
+
+[invaluement]
+name = "invaluement"
+website = "https://www.invaluement.com"
+
+domain_lists = [
+    { name = "invaluement DNSBL ivmSED", url = "", type = "domain" },
+    { name = "invaluement DNSBL ivmURI", url = "", type = "domain" }
+]
+
+ip_lists = [
+    { name = "invaluement DNSBL ivmSIP", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP-SIP24", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP/24", url = "", type = "ipv4" }
+]
+
+[iprange]
+name = "IPrange.net"
+website = "https://iprange.net"
+
+ip_lists = [
+    { name = "IPrange.net Real-Time Block List", url = "rbl.iprange.net", type = "ipv4" }
+]
+
+[ircbl]
+name = "ircbl"
+website = "https://ircbl.org"
+
+ip_lists = [
+    { name = "ircbl", url = "rbl.ircbl.org", type = "ipv4" }
+]
+
+[justspam]
+name = "JustSpam.org"
+website = "https://justspam.org"
+
+ip_lists = [
+    { name = "JustSpam.org", url = "dnsbl.justspam.org", type = "ipv4" }
+]
+
+[kempt]
+name = "Kempt.net"
+website = "https://kempt.net"
+
+ip_lists = [
+    { name = "Kempt.net DNS Black List", url = "dnsbl.kempt.net", type = "ipv4" }
+]
+
+[kisa]
+name = "KISA-Real-Time Block List"
+website = "https://www.kisa.or.kr"
+
+ip_lists = [
+    { name = "KISA-Real-Time Block List", url = "spamlist.or.kr", type = "ipv4" }
+]
+
+[konstant]
+name = "KONSTANT DNSBL"
+website = "https://konstant.no"
+
+ip_lists = [
+    { name = "KONSTANT DNSBL", url = "bl.konstant.no", type = "ipv4" }
+]
+
+[leadmon]
+name = "Leadmon.Net's SpamGuard"
+website = "https://www.leadmon.net"
+
+ip_lists = [
+    { name = "Leadmon.Net's SpamGuard Listings (LNSG)", url = "spamguard.leadmon.net", type = "ipv4" }
+]
+
+[mailcleaner]
+name = "MailCleaner"
+website = "https://www.mailcleaner.net"
+
+domain_lists = [
+    { name = "MailCleaner Newsletter URI list", url = "nuribl.mailcleaner.net", type = "domain" },
+    { name = "MailCleaner SPAM URI Block List", url = "uribl.mailcleaner.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "MailCleaner IP Block List", url = "iprbl.mailcleaner.net", type = "ipv4" },
+    { name = "MailCleaner Newsletter IP list", url = "niprbl.mailcleaner.net", type = "ipv4" }
+]
+
+[mailspike]
+name = "Mailspike"
+website = "https://mailspike.net"
+
+ip_lists = [
+    { name = "Mailspike Block List", url = "bl.mailspike.net", type = "ipv4" },
+    { name = "Mailspike Zero-hour Data", url = "z.mailspike.net", type = "ipv4" }
+]
+
+[mav]
+name = "MAV BL"
+website = "https://mav.com.br"
+
+ip_lists = [
+    { name = "MAV BL", url = "bl.mav.com.br", type = "ipv4" }
+]
+
+[mcafee]
+name = "McAfee Real-Time Block List"
+website = "https://www.mcafee.com"
+
+ip_lists = [
+    { name = "McAfee Real-Time Block List", url = "cidr.bl.mcafee.com", type = "ipv4" }
+]
+
+[metunet]
+name = "Metunet Real-Time Block List"
+website = "https://rbl.metunet.com"
+
+ip_lists = [
+    { name = "Metunet Real-Time Block List", url = "rbl.metunet.com", type = "ipv4" }
+]
+
+[msrbl]
+name = "MSReal-Time Block List"
+website = "https://www.msrbl.com"
+
+ip_lists = [
+    { name = "MSReal-Time Block List combined", url = "combined.rbl.msrbl.net", type = "ipv4" },
+    { name = "MSReal-Time Block List images", url = "images.rbl.msrbl.net", type = "ipv4" },
+    { name = "MSReal-Time Block List phishing", url = "phishing.rbl.msrbl.net", type = "ipv4" },
+    { name = "MSReal-Time Block List spam", url = "spam.rbl.msrbl.net", type = "ipv4" },
+    { name = "MSReal-Time Block List virus", url = "virus.rbl.msrbl.net", type = "ipv4" },
+    { name = "MSReal-Time Block List web", url = "web.rbl.msrbl.net", type = "ipv4" }
+]
+
+[nix_spam]
+name = "NiX Spam"
+website = "https://www.nixspam.net"
+
+ip_lists = [
+    { name = "NiX Spam DNSBL", url = "ix.dnsbl.manitu.net", type = "ipv4" }
+]
+
+[nordspam]
+name = "NordSpam"
+website = "https://www.nordspam.com"
+
+domain_lists = [
+    { name = "NordSpam Domain Block List", url = "dbl.nordspam.com", type = "domain" }
+]
+
+ip_lists = [
+    { name = "NordSpam IP Block List", url = "bl.nordspam.com", type = "ipv4" },
+    { name = "NordSpam IP Block List", url = "bl.nordspam.com", type = "ipv6" }
+]
+
+[nosolicitado]
+name = "NoSolicitado.org"
+website = "https://www.nosolicitado.org"
+
+ip_lists = [
+    { name = "NoSolicitado.org BL", url = "bl.nosolicitado.org", type = "ipv4" },
+    { name = "NoSolicitado.org Worst BL", url = "bl.worst.nosolicitado.org", type = "ipv4" }
+]
+
+[nszones]
+name = "nsZones.com"
+website = "https://nszones.com"
+
+domain_lists = [
+    { name = "nsZones.com SUReal-Time Block List", url = "ubl.nszones.com", type = "domain" }
+]
+
+ip_lists = [
+    { name = "nsZones.com Dyn", url = "dyn.nszones.com", type = "ipv4" },
+    { name = "nsZones.com SBL", url = "sbl.nszones.com", type = "ipv4" },
+    { name = "nsZones.com SBL+Dyn", url = "bl.nszones.com", type = "ipv4" }
+]
+
+[octopus]
+name = "Octopus Real-Time Block List Monster"
+website = "https://octopusdns.com"
+
+ip_lists = [
+    { name = "Octopus Real-Time Block List Monster", url = "bl.octopusdns.com", type = "ipv4" }
+]
+
+[pofon]
+name = "pofon.foobar.hu"
+website = "https://pofon.foobar.hu"
+
+domain_lists = [
+    { name = "pofon.foobar.hu URI Block List", url = "uribl.pofon.foobar.hu", type = "domain" }
+]
+
+ip_lists = [
+    { name = "pofon.foobar.hu IP Block List", url = "pofon.foobar.hu", type = "ipv4" },
+    { name = "pofon.foobar.hu IP Block List", url = "pofon.foobar.hu", type = "ipv6" }
+]
+
+[polspam]
+name = "Polspam"
+website = "https://www.polspam.pl"
+
+domain_lists = [
+    { name = "Polspam RHSBL", url = "rhsbl.rbl.polspam.pl", type = "domain" },
+    { name = "Polspam RHSBL-H", url = "rhsbl-h.rbl.polspam.pl", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Polspam BL", url = "bl.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam BL-H1", url = "bl-h1.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam BL-H2", url = "bl-h2.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam BL-H3", url = "bl-h3.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam BL-H4", url = "bl-h4.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam BL6", url = "bl6.rbl.polspam.pl", type = "ipv6" },
+    { name = "Polspam CNKR", url = "cnkr.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam Dyn", url = "dyn.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam LBLIP4", url = "lblip4.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam LBLIP6", url = "lblip6.rbl.polspam.pl", type = "ipv6" },
+    { name = "Polspam Real-Time Block ListIP4", url = "rblip4.rbl.polspam.pl", type = "ipv4" },
+    { name = "Polspam Real-Time Block ListIP6", url = "rblip6.rbl.polspam.pl", type = "ipv6" }
+]
+
+[powerweb]
+name = "PowerWeb DNSBL"
+website = "https://www.powerweb.de"
+
+ip_lists = [
+    { name = "PowerWeb DNSBL", url = "", type = "ipv4" }
+]
+
+[projecthoneypot]
+name = "Project Honey Pot"
+website = "https://www.projecthoneypot.org"
+
+ip_lists = [
+    { name = "Project Honey Pot (http:BL)", url = "", type = "ipv4" }
+]
+
+[psbl]
+name = "PSBL"
+website = "https://psbl.org"
+
+ip_lists = [
+    { name = "PSBL (Passive Spam Block List)", url = "psbl.surriel.com", type = "ipv4" }
+]
+
+[rbldns]
+name = "rbl.rbldns.ru"
+website = "https://rbldns.ru"
+
+ip_lists = [
+    { name = "rbl.rbldns.ru", url = "rbl.rbldns.ru", type = "ipv4" }
+]
+
+[rbl_schulte]
+name = "rbl.schulte.org"
+website = "https://rbl.schulte.org"
+
+ip_lists = [
+    { name = "rbl.schulte.org", url = "rbl.schulte.org", type = "ipv4" }
+]
+
+[redhawk]
+name = "Redhawk.org"
+website = "https://www.redhawk.org"
+
+ip_lists = [
+    { name = "Redhawk.org", url = "access.redhawk.org", type = "ipv4" }
+]
+
+[rjek]
+name = "rjek.com"
+website = "https://rjek.com"
+
+domain_lists = [
+    { name = "rjek.com mailsl DNSBL", url = "mailsl.dnsbl.rjek.com", type = "domain" },
+    { name = "rjek.com urlsl DNSBL", url = "urlsl.dnsbl.rjek.com", type = "domain" }
+]
+
+[rspamd]
+name = "Rspamd URIBL"
+website = "https://rspamd.com"
+
+domain_lists = [
+    { name = "Rspamd URIBL", url = "uribl.rspamd.com", type = "domain" }
+]
+
+[rymsho]
+name = "Rymsho's DNSBL"
+website = "https://rymsho.ru"
+
+domain_lists = [
+    { name = "Rymsho's RHSBL", url = "rhsbl.rymsho.ru", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Rymsho's DNSBL", url = "dnsbl.rymsho.ru", type = "ipv4" }
+]
+
+[s5h]
+name = "s5h.net"
+website = "https://s5h.net"
+
+ip_lists = [
+    { name = "s5h.net Real-Time Block List", url = "all.s5h.net", type = "ipv4" },
+    { name = "s5h.net Real-Time Block List", url = "all.s5h.net", type = "ipv6" }
+]
+
+[sarbl]
+name = "SAReal-Time Block List"
+website = "https://www.sarbl.org"
+
+domain_lists = [
+    { name = "SAReal-Time Block List", url = "public.sarbl.org", type = "domain" }
+]
+
+[scientificspam]
+name = "scientificspam.net"
+website = "https://scientificspam.net"
+
+domain_lists = [
+    { name = "scientificspam.net Domain list", url = "rhsbl.scientificspam.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "scientificspam.net IP list", url = "bl.scientificspam.net", type = "ipv4" }
+]
+
+[spamcop]
+name = "SpamCop"
+website = "https://www.spamcop.net"
+
+ip_lists = [
+    { name = "SpamCop Blocking List", url = "bl.spamcop.net", type = "ipv4" }
+]
+
+[spamdown]
+name = "Spamdown"
+website = "https://www.spamdown.org"
+
+ip_lists = [
+    { name = "Spamdown Real-Time Block List", url = "sbl.spamdown.org", type = "ipv4" }
+]
+
+[spamhaus]
+name = "Spamhaus"
+website = "https://www.spamhaus.org"
+
+domain_lists = [
+    { name = "Spamhaus DBL Domain Block List", url = "dbl.spamhaus.org", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Spamhaus PBL Policy Block List", url = "pbl.spamhaus.org", type = "ipv4" },
+    { name = "Spamhaus PBL Policy Block List", url = "pbl.spamhaus.org", type = "ipv6" },
+    { name = "Spamhaus SBL Spamhaus Block List", url = "sbl.spamhaus.org", type = "ipv4" },
+    { name = "Spamhaus SBL Spamhaus Block List", url = "sbl.spamhaus.org", type = "ipv6" },
+    { name = "Spamhaus SBL-XBL Combined Block List", url = "sbl-xbl.spamhaus.org", type = "ipv4" },
+    { name = "Spamhaus SBL-XBL Combined Block List", url = "sbl-xbl.spamhaus.org", type = "ipv6" },
+    { name = "Spamhaus XBL Exploits Block List", url = "xbl.spamhaus.org", type = "ipv4" },
+    { name = "Spamhaus XBL Exploits Block List", url = "xbl.spamhaus.org", type = "ipv6" },
+    { name = "Spamhaus ZEN Combined Block List", url = "zen.spamhaus.org", type = "ipv4" },
+    { name = "Spamhaus ZEN Combined Block List", url = "zen.spamhaus.org", type = "ipv6" }
+]
+
+[spamrats]
+name = "SpamRATS!"
+website = "https://www.spamrats.com"
+
+ip_lists = [
+    { name = "SpamRATS! all", url = "all.spamrats.com", type = "ipv4" },
+    { name = "SpamRATS! Auth", url = "auth.spamrats.com", type = "ipv4" },
+    { name = "SpamRATS! Dyna", url = "dyna.spamrats.com", type = "ipv4" },
+    { name = "SpamRATS! NoPtr", url = "noptr.spamrats.com", type = "ipv4" },
+    { name = "SpamRATS! Spam", url = "spam.spamrats.com", type = "ipv4" }
+]
+
+[spamsources]
+name = "spamsources.fabel.dk"
+website = "https://www.fabel.dk"
+
+ip_lists = [
+    { name = "spamsources.fabel.dk", url = "spamsources.fabel.dk", type = "ipv4" }
+]
+
+[spfbl]
+name = "SPFBL.net"
+website = "https://spfbl.net"
+
+domain_lists = [
+    { name = "SPFBL.net Real-Time Block List", url = "dnsbl.spfbl.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "SPFBL.net Real-Time Block List", url = "dnsbl.spfbl.net", type = "ipv4" },
+    { name = "SPFBL.net Real-Time Block List", url = "dnsbl.spfbl.net", type = "ipv6" }
+]
+
+[suomispam]
+name = "Suomispam"
+website = "https://www.suomispam.net"
+
+domain_lists = [
+    { name = "Suomispam Domain Block List", url = "dbl.suomispam.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Suomispam Block List", url = "bl.suomispam.net", type = "ipv4" },
+    { name = "Suomispam Block List", url = "bl.suomispam.net", type = "ipv6" }
+]
+
+[surbl]
+name = "SUReal-Time Block List"
+website = "https://www.surbl.org"
+
+domain_lists = [
+    { name = "SUReal-Time Block List multi (Combined SURBL list)", url = "multi.surbl.org", type = "domain" }
+]
+
+[suresupport]
+name = "Suresupport.com"
+website = "https://www.suresupport.com"
+
+ip_lists = [
+    { name = "Suresupport.com Real-Time Block List", url = "rbl.suresupport.com", type = "ipv4" }
+]
+
+[swinog]
+name = "Swinog"
+website = "https://www.swinog.ch"
+
+domain_lists = [
+    { name = "Swinog URIBL", url = "uribl.swinog.ch", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Swinog DNSReal-Time Block List", url = "dnsrbl.swinog.ch", type = "ipv4" }
+]
+
+[technovision]
+name = "TechnoVision"
+website = "https://www.technovision.dk"
+
+ip_lists = [
+    { name = "TechnoVision SpamTrap", url = "st.technovision.dk", type = "ipv4" }
+]
+
+[threatint]
+name = "THREATINT"
+website = "https://threatint.com"
+
+ip_lists = [
+    { name = "THREATINT DNSBL", url = "dnsbl.threatint.zone", type = "ipv4" },
+    { name = "THREATINT DNSBL", url = "dnsbl.threatint.zone", type = "ipv6" }
+]
+
+[tornevall]
+name = "TornevallNET"
+website = "https://dnsbl.tornevall.org"
+
+ip_lists = [
+    { name = "TornevallNET DNSBL", url = "dnsbl.tornevall.org", type = "ipv4" }
+]
+
+[triumf]
+name = "TRIUMF.ca"
+website = "https://www.triumf.ca"
+
+ip_lists = [
+    { name = "TRIUMF.ca DNSBL", url = "rbl2.triumf.ca", type = "ipv4" }
+]
+
+[truncate]
+name = "truncate.gbudb.net"
+website = "https://gbudb.net"
+
+ip_lists = [
+    { name = "truncate.gbudb.net", url = "truncate.gbudb.net", type = "ipv4" }
+]
+
+[uceprotect]
+name = "UCEPROTECT"
+website = "https://www.uceprotect.net"
+
+ip_lists = [
+    { name = "UCEPROTECT Level 0", url = "dnsbl-0.uceprotect.net", type = "ipv4" },
+    { name = "UCEPROTECT Level 1", url = "dnsbl-1.uceprotect.net", type = "ipv4" },
+    { name = "UCEPROTECT Level 2", url = "dnsbl-2.uceprotect.net", type = "ipv4" },
+    { name = "UCEPROTECT Level 3", url = "dnsbl-3.uceprotect.net", type = "ipv4" }
+]
+
+[unsubscore]
+name = "Unsubscribe Block List"
+website = "https://unsubscore.com"
+
+ip_lists = [
+    { name = "Unsubscribe Block List UBL", url = "ubl.unsubscore.com", type = "ipv4" }
+]
+
+#[uribl]
+#name = "URIBL"
+#website = "https://uribl.com"
+
+#domain_lists = [
+#    { name = "URIBL black", url = "black.uribl.com", type = "domain" },
+#    { name = "URIBL grey", url = "grey.uribl.com", type = "domain" },
+#    { name = "URIBL multi", url = "multi.uribl.com", type = "domain" },
+#    { name = "URIBL red", url = "red.uribl.com", type = "domain" }
+#]
+
+[v4bl]
+name = "V4BL"
+website = "https://v4bl.org"
+
+ip_lists = [
+    { name = "V4BL-FREE/DDNSBL-FREE", url = "free.v4bl.org", type = "ipv4" },
+    { name = "V4BL/DDNSBL", url = "ip.v4bl.org", type = "ipv4" }
+]
+
+[virusfree]
+name = "Virusfree"
+website = "https://virusfree.cz"
+
+ip_lists = [
+    { name = "Virusfree BAD", url = "bad.virusfree.cz", type = "ipv4" },
+    { name = "Virusfree BIP", url = "bip.virusfree.cz", type = "ipv4" }
+]
+
+[woody]
+name = "Woody's SMTP Block List"
+website = "https://woody.ch"
+
+domain_lists = [
+    { name = "Woody's SMTP Block List URIBL", url = "uri.blacklist.woody.ch", type = "domain" }
+]
+
+ip_lists = [
+    { name = "Woody's SMTP Block List IPv4", url = "blacklist.woody.ch", type = "ipv4" },
+    { name = "Woody's SMTP Block List IPv6", url = "ipv6.blacklist.woody.ch", type = "ipv6"}
+]
+
+[wpbl]
+name = "WPBL"
+website = "https://www.wpbl.info"
+
+ip_lists = [
+    { name = "WPBL - Weighted Private Block List", url = "db.wpbl.info", type = "ipv4" }
+]
+
+[zapbl]
+name = "ZapBL"
+website = "https://zapbl.net"
+
+domain_lists = [
+    { name = "ZapBL RHSBL", url = "rhsbl.zapbl.net", type = "domain" }
+]
+
+ip_lists = [
+    { name = "ZapBL DNS Real-Time Block List", url = "dnsbl.zapbl.net", type = "ipv4" }
+]
+
+[zenrbl]
+name = "ZenReal-Time Block List"
+website = "https://zenrbl.pl"
+
+domain_lists = [
+    { name = "ZenReal-Time Block List Domain Blocklist", url = "d.bl.zenrbl.pl", type = "domain" }
+]
+
+ip_lists = [
+    { name = "ZenReal-Time Block List IP Blocklist", url = "ip4.bl.zenrbl.pl", type = "ipv4" }
+]

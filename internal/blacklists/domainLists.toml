@@ -1,0 +1,234 @@
+# Email Block List Configuration
+
+[abuse_ro]
+name = "abuse.ro"
+website = "https://abuse.ro"
+
+domain_lists = [
+    { name = "abuse.ro Real-Time Block List", url = "uribl.abuse.ro", type = "minor" }
+]
+
+
+[abusix]
+name = "Abusix Mail Intelligence"
+lookup = "https://lookup.abusix.com/search?q={ip/domain}"
+website = "https://abusix.com"
+
+domain_lists = [
+    { name = "Abusix Domain Blacklist", url = "", type = "minor" },
+    { name = "Abusix Newly Observed Domains List", url = "", type = "age" }
+]
+
+[blogspam]
+name = "Blog Spam Blocklist"
+website = "https://www.spamlookup.net"
+
+domain_lists = [
+    { name = "Blog Spam Blocklist (spamlookup.net)", url = "bsb.spamlookup.net", type = "minor" }
+]
+
+[brukalai_lt]
+name = "Brukalai.lt"
+website = "https://brukalai.lt"
+
+domain_lists = [
+    { name = "Brukalai.lt DNSBL black", url = "black.dnsbl.brukalai.lt", type = "minor" },
+    { name = "Brukalai.lt DNSBL light", url = "light.dnsbl.brukalai.lt", type = "minor" }
+]
+
+[fmb_la]
+name = "fmb.la"
+website = "https://fmb.la"
+
+domain_lists = [
+    { name = "fmb.la bl", url = "bl.fmb.la", type = "minor" },
+    { name = "fmb.la communicado", url = "communicado.fmb.la", type = "minor" },
+    { name = "fmb.la nsbl", url = "nsbl.fmb.la", type = "minor" },
+    { name = "fmb.la short", url = "short.fmb.la", type = "minor" }
+]
+
+[invaluement]
+name = "invaluement"
+website = "https://www.invaluement.com"
+
+domain_lists = [
+    { name = "invaluement DNSBL ivmSED", url = "", type = "minor" },
+    { name = "invaluement DNSBL ivmURI", url = "", type = "minor" }
+]
+
+ip_lists = [
+    { name = "invaluement DNSBL ivmSIP", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP-SIP24", url = "", type = "ipv4" },
+    { name = "invaluement DNSBL ivmSIP/24", url = "", type = "ipv4" }
+]
+
+[mailcleaner]
+name = "MailCleaner"
+website = "https://www.mailcleaner.net"
+
+domain_lists = [
+    { name = "MailCleaner Newsletter URI list", url = "nuribl.mailcleaner.net", type = "minor" },
+    { name = "MailCleaner SPAM URI Block List", url = "uribl.mailcleaner.net", type = "minor" }
+]
+
+[nordspam]
+name = "NordSpam"
+website = "https://www.nordspam.com"
+
+domain_lists = [
+    { name = "NordSpam Domain Block List", url = "dbl.nordspam.com", type = "minor" }
+]
+
+[nszones]
+name = "nsZones.com"
+website = "https://nszones.com"
+
+domain_lists = [
+    { name = "nsZones.com SUReal-Time Block List", url = "ubl.nszones.com", type = "minor" }
+]
+
+[pofon]
+name = "pofon.foobar.hu"
+website = "https://pofon.foobar.hu"
+
+domain_lists = [
+    { name = "pofon.foobar.hu URI Block List", url = "uribl.pofon.foobar.hu", type = "minor" }
+]
+
+[polspam]
+name = "Polspam"
+website = "https://www.polspam.pl"
+
+domain_lists = [
+    { name = "Polspam RHSBL", url = "rhsbl.rbl.polspam.pl", type = "minor" },
+    { name = "Polspam RHSBL-H", url = "rhsbl-h.rbl.polspam.pl", type = "minor" }
+]
+
+[rjek]
+name = "rjek.com"
+website = "https://rjek.com"
+
+domain_lists = [
+    { name = "rjek.com mailsl DNSBL", url = "mailsl.dnsbl.rjek.com", type = "minor" },
+    { name = "rjek.com urlsl DNSBL", url = "urlsl.dnsbl.rjek.com", type = "minor" }
+]
+
+[rspamd]
+name = "Rspamd URIBL"
+website = "https://rspamd.com"
+
+domain_lists = [
+    { name = "Rspamd URIBL", url = "uribl.rspamd.com", type = "minor" }
+]
+
+[rymsho]
+name = "Rymsho's DNSBL"
+website = "https://rymsho.ru"
+
+domain_lists = [
+    { name = "Rymsho's RHSBL", url = "rhsbl.rymsho.ru", type = "minor" }
+]
+
+[sarbl]
+name = "SAReal-Time Block List"
+website = "https://www.sarbl.org"
+
+domain_lists = [
+    { name = "SAReal-Time Block List", url = "public.sarbl.org", type = "minor" }
+]
+
+[scientificspam]
+name = "scientificspam.net"
+website = "https://scientificspam.net"
+
+domain_lists = [
+    { name = "scientificspam.net Domain list", url = "rhsbl.scientificspam.net", type = "minor" }
+]
+
+[sem]
+name = "Spam Eating Monkey"
+website = "https://spameatingmonkey.com/services"
+
+domain_lists = [
+    { name = "SEM FreshZero Domain List", url = "freshzero.spameatingmonkey.net", type ="age"},
+    { name = "SEM Fresh Domain List", url = "fresh.spameatingmonkey.net", type ="age"},
+    { name = "SEM Fresh10 Domain List", url = "fresh10.spameatingmonkey.net", type ="age"},
+    { name = "SEM Fresh15 Domain List", url = "fresh15.spameatingmonkey.net", type ="age"},
+    { name = "SEM Fresh30 Domain List", url = "fresh30.spameatingmonkey.net", type ="age"},
+    { name = "SEM SpamTrap List", url = "uribl.spameatingmonkey.net", type ="spam"},
+]
+
+[spamhaus]
+name = "Spamhaus"
+website = "https://www.spamhaus.org"
+
+domain_lists = [
+    { name = "Spamhaus DBL Domain Block List", url = "dbl.spamhaus.org", type = "major" }
+]
+
+[spfbl]
+name = "SPFBL.net"
+website = "https://spfbl.net"
+
+domain_lists = [
+    { name = "SPFBL.net Real-Time Block List", url = "dnsbl.spfbl.net", type = "minor" }
+]
+
+[suomispam]
+name = "Suomispam"
+website = "https://www.suomispam.net"
+
+domain_lists = [
+    { name = "Suomispam Domain Block List", url = "dbl.suomispam.net", type = "minor" }
+]
+
+[surbl]
+name = "SUReal-Time Block List"
+website = "https://www.surbl.org"
+
+domain_lists = [
+    { name = "SUReal-Time Block List multi (Combined SURBL list)", url = "multi.surbl.org", type = "major" }
+]
+
+[swinog]
+name = "Swinog"
+website = "https://www.swinog.ch"
+
+domain_lists = [
+    { name = "Swinog URIBL", url = "uribl.swinog.ch", type = "minor" }
+]
+
+#[uribl]
+#name = "URIBL"
+#website = "https://uribl.com"
+
+#domain_lists = [
+#    { name = "URIBL black", url = "black.uribl.com", type = "minor" },
+#    { name = "URIBL grey", url = "grey.uribl.com", type = "minor" },
+#    { name = "URIBL multi", url = "multi.uribl.com", type = "minor" },
+#    { name = "URIBL red", url = "red.uribl.com", type = "minor" }
+#]
+
+[woody]
+name = "Woody's SMTP Block List"
+website = "https://woody.ch"
+
+domain_lists = [
+    { name = "Woody's SMTP Block List URIBL", url = "uri.blacklist.woody.ch", type = "minor" }
+]
+
+[zapbl]
+name = "ZapBL"
+website = "https://zapbl.net"
+
+domain_lists = [
+    { name = "ZapBL RHSBL", url = "rhsbl.zapbl.net", type = "minor" }
+]
+
+[zenrbl]
+name = "ZenReal-Time Block List"
+website = "https://zenrbl.pl"
+
+domain_lists = [
+    { name = "ZenReal-Time Block List Domain Blocklist", url = "d.bl.zenrbl.pl", type = "minor" }
+]

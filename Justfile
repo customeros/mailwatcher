@@ -33,5 +33,8 @@ dist:
 	aws s3 cp ./mailwatcher-linux-arm64.tar.gz $CLOUDFLARE_R2_BUCKET/mailwatcher-linux-arm64.tar.gz --endpoint-url $CLOUDFLARE_R2_ENDPOINT
 	just clean
 
+run *ARGS:
+        go run main.go {{ARGS}}
+
 test:
     go test ./...
