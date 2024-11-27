@@ -2,6 +2,7 @@ package dmarcstats
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
 	"time"
 )
@@ -27,7 +28,7 @@ type FailureDetail struct {
 	HeaderFrom    string `json:"header_from"`
 	SPFDomain     string `json:"spf_domain,omitempty"`
 	DKIMDomain    string `json:"dkim_domain,omitempty"`
-	FailureReason string `json:"failure_reason"`
+	FailureReason string `json:"failure_reason,omitempty"`
 }
 
 type ReportDate struct {
@@ -36,8 +37,11 @@ type ReportDate struct {
 }
 
 type AuthResults struct {
+	SPFPassCount        int     `json:"spf_pass"`
 	SPFPassRate         float64 `json:"spf_pass_rate"`
+	DKIMPassCount       int     `json:"dkim_pass"`
 	DKIMPassRate        float64 `json:"dkim_pass_rate"`
+	DMARCPassCount      int     `json:"dmarc_pass"`
 	DMARCComplianceRate float64 `json:"dmarc_compliance_rate"`
 }
 
@@ -100,7 +104,11 @@ func AnalyzeDMARCReport(reader io.Reader) (*Report, error) {
 	var feedback DMARCFeedback
 	decoder := xml.NewDecoder(reader)
 	if err := decoder.Decode(&feedback); err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to decode DMARC report: %w", err)
+	}
+
+	if len(feedback.Records) == 0 {
+		return nil, fmt.Errorf("no records found in DMARC report")
 	}
 
 	report := &Report{
@@ -125,6 +133,10 @@ func AnalyzeDMARCReport(reader io.Reader) (*Report, error) {
 	dispositionCounts := make(map[string]int)
 
 	for _, record := range feedback.Records {
+		if record.Count <= 0 {
+			continue // Skip invalid records
+		}
+
 		count := record.Count
 		totalMessages += count
 
@@ -144,51 +156,57 @@ func AnalyzeDMARCReport(reader io.Reader) (*Report, error) {
 			dmarcPass += count
 		}
 
-		// Record failing IPs
+		// Record failures (or partial failures)
 		if spfResult != "pass" || dkimResult != "pass" {
 			failureReason := determineFailureReason(spfResult, dkimResult)
+			if failureReason != "" {
+				detail := FailureDetail{
+					IP:            record.SourceIP,
+					Count:         count,
+					SPFResult:     spfResult,
+					DKIMResult:    dkimResult,
+					Disposition:   record.PolicyEvaluated.Disposition,
+					HeaderFrom:    record.Identifiers.HeaderFrom,
+					FailureReason: failureReason,
+				}
 
-			detail := FailureDetail{
-				IP:            record.SourceIP,
-				Count:         count,
-				SPFResult:     spfResult,
-				DKIMResult:    dkimResult,
-				Disposition:   record.PolicyEvaluated.Disposition,
-				HeaderFrom:    record.Identifiers.HeaderFrom,
-				FailureReason: failureReason,
-			}
+				if record.AuthResults.SPF.Domain != "" {
+					detail.SPFDomain = record.AuthResults.SPF.Domain
+				}
+				if record.AuthResults.DKIM.Domain != "" {
+					detail.DKIMDomain = record.AuthResults.DKIM.Domain
+				}
 
-			// Add SPF and DKIM domains if available
-			if record.AuthResults.SPF.Domain != "" {
-				detail.SPFDomain = record.AuthResults.SPF.Domain
+				report.FailingIPs = append(report.FailingIPs, detail)
 			}
-			if record.AuthResults.DKIM.Domain != "" {
-				detail.DKIMDomain = record.AuthResults.DKIM.Domain
-			}
-
-			report.FailingIPs = append(report.FailingIPs, detail)
 		}
 	}
 
+	if totalMessages == 0 {
+		return nil, fmt.Errorf("no valid messages found in DMARC report")
+	}
+
 	report.TotalMessages = totalMessages
+	report.AuthResults = AuthResults{
+		SPFPassCount:        spfPass,
+		SPFPassRate:         roundToTwoDecimals(float64(spfPass) / float64(totalMessages) * 100),
+		DKIMPassCount:       dkimPass,
+		DKIMPassRate:        roundToTwoDecimals(float64(dkimPass) / float64(totalMessages) * 100),
+		DMARCPassCount:      dmarcPass,
+		DMARCComplianceRate: roundToTwoDecimals(float64(dmarcPass) / float64(totalMessages) * 100),
+	}
 
-	// Calculate rates if there are messages
-	if totalMessages > 0 {
-		report.AuthResults = AuthResults{
-			SPFPassRate:         roundToTwoDecimals(float64(spfPass) / float64(totalMessages) * 100),
-			DKIMPassRate:        roundToTwoDecimals(float64(dkimPass) / float64(totalMessages) * 100),
-			DMARCComplianceRate: roundToTwoDecimals(float64(dmarcPass) / float64(totalMessages) * 100),
-		}
-
-		for disposition, count := range dispositionCounts {
-			report.DispositionAnalysis[disposition] = roundToTwoDecimals(float64(count) / float64(totalMessages) * 100)
-		}
+	for disposition, count := range dispositionCounts {
+		report.DispositionAnalysis[disposition] = roundToTwoDecimals(float64(count) / float64(totalMessages) * 100)
 	}
 
 	return report, nil
 }
 
 func determineFailureReason(spfResult, dkimResult string) string {
+	if spfResult == "pass" && dkimResult == "pass" {
+		return ""
+	}
 	if spfResult != "pass" && dkimResult != "pass" {
 		return "Both SPF and DKIM failed"
 	} else if spfResult != "pass" {
