@@ -48,6 +48,7 @@ func GetDomainDates(domain string) (*DomainDates, error) {
 	dates := &DomainDates{
 		CreatedDate: parsed.Domain.CreatedDate,
 		UpdatedDate: parsed.Domain.UpdatedDate,
+		Success:     true,
 	}
 
 	// Parse dates using multiple formats
