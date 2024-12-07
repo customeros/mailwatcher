@@ -2,11 +2,12 @@ package domainage
 
 import (
 	"fmt"
-	"github.com/likexian/whois"
-	"github.com/likexian/whois-parser"
 	"net"
 	"strings"
 	"time"
+
+	"github.com/likexian/whois"
+	"github.com/likexian/whois-parser"
 )
 
 type DomainDates struct {
@@ -14,6 +15,7 @@ type DomainDates struct {
 	UpdateAge   int    // Age since last update in days
 	CreatedDate string // Original creation date string
 	UpdatedDate string // Last updated date string
+	Success     bool
 }
 
 func GetDomainDates(domain string) (*DomainDates, error) {
@@ -33,7 +35,9 @@ func GetDomainDates(domain string) (*DomainDates, error) {
 
 	result, err := whois.Whois(domain)
 	if err != nil {
-		return nil, fmt.Errorf("error querying WHOIS: %v", err)
+		return &DomainDates{
+			Success: false,
+		}, nil
 	}
 
 	parsed, err := whoisparser.Parse(result)
